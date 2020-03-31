@@ -29,3 +29,11 @@
 *.exe
 *.out
 *.app
+
+# CodeBlocs
+*.depend
+*.cbp
+*.layout
+bin
+music
+obj
