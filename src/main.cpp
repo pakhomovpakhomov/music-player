@@ -3,22 +3,27 @@
 #include <windows.h>
 
 #include "..\libs\curses.h"
+
+#include "Player.h"
 #include "FileWork.h"
+
+
+#include "DATA.h"
 
 int main()
 {
-    LookAtFiles();
+    inputPath();
 
-    std::string path;
-    std::cin >> path;
+    std::cout << "Name: ";
+    std::string name;
+    std::cin >> name;
 
-    const char* CCpath = path.c_str();
-    PlaySound(CCpath, NULL, SND_ASYNC | SND_FILENAME);
+    Play(name);
 
     int n = 0;
-
     std::cout << "Enter to exit";
     std::cin >> n;
 
     return 0;
 }
+

@@ -3,6 +3,8 @@
 
 #include <windows.h>
 
+#include "FileWork.h"
+
 void LookAtFiles()
 {
     std::cout << "Enter Path" << std::endl;
@@ -34,5 +36,9 @@ void LookAtFiles()
     }
 
     std::cout << std::endl;
+}
 
+const char* stringConversionCC(std::string line)
+{
+    return line.c_str();
 }
