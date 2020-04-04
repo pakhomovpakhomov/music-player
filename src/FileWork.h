@@ -4,6 +4,8 @@
 void LookAtFiles();
 void LookAtFiles(std::string path);
 
+void SaveFiles();
+
 const char* stringConversionCC(std::string line);
 
 #endif

@@ -2,13 +2,15 @@
 #define PLAYER_H
 
 void Play();
-void Play(std::string name);
-void Play(const char* path, std::string name);
-void Stop();
+void Play(std::wstring name);
+void Play(const char* path, std::wstring name);
+void Pause();
 void Next();
 void Previous();
 
-void inputPath();
-void setPath(std::string path);
+void setPath(std::wstring path);
+std::wstring getPath();
+
+void addTrack(std::wstring file);
 
 #endif

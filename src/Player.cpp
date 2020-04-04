@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include <windows.h>
 
@@ -7,25 +8,50 @@
 #include "DATA.h"
 #include "FileWork.h"
 
-std::string PATHMUSIC = ":D";
+std::wstring PATHMUSIC = L"";
 
-void Play(std::string name)
+std::vector<std::wstring> arr;
+
+int trackNum = 0;
+//TODO: MaxTracks + functions
+
+void Play()
 {
-    std::string path = (PATHMUSIC + "/" + name);
-    //PlaySound(stringConversionCC(path), NULL, SND_ASYNC | SND_FILENAME);
-    PlaySound(path.c_str(), NULL, SND_ASYNC | SND_FILENAME);
+
+    std::wstring path = (PATHMUSIC + L"/") + arr[trackNum];
+    trackNum++;
+    PlaySoundW(path.c_str(), NULL, SND_ASYNC | SND_FILENAME);
 }
 
-void inputPath()
+void Play(std::wstring name)
 {
-    std::string path;
-    std::cout << "Path: ";
-    std::cin >> path;
-    setPath(path);
+    trackNum = 0;
+    std::wstring path = (PATHMUSIC + L"/") + name;
+    PlaySoundW(path.c_str(), NULL, SND_ASYNC | SND_FILENAME);
 }
 
-void setPath(std::string path)
+void Pause()
+{
+    PlaySound(NULL, NULL, SND_ASYNC | SND_FILENAME);
+}
+
+void Next()
+{
+    Pause();
+    Play();
+}
+
+void setPath(std::wstring path)
 {
     PATHMUSIC = path;
 }
 
+std::wstring getPath()
+{
+    return PATHMUSIC;
+}
+
+void addTrack(std::wstring file)
+{
+   arr.push_back(file);
+}

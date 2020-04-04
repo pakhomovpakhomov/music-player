@@ -2,26 +2,32 @@
 
 #include <windows.h>
 
-#include "..\libs\curses.h"
 
 #include "Player.h"
 #include "FileWork.h"
-
+#include "UI.h"
 
 #include "DATA.h"
 
 int main()
 {
+    setlocale(LC_ALL, "Russian");
+    int n;
+
     inputPath();
 
-    std::cout << "Name: ";
-    std::string name;
-    std::cin >> name;
+    SaveFiles();
 
-    Play(name);
+    Play();
 
-    int n = 0;
-    std::cout << "Enter to exit";
+    Sleep(5000);
+
+    Next();
+
+    Sleep(5000);
+
+    Play(L"atl.wav");
+
     std::cin >> n;
 
     return 0;
