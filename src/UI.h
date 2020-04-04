@@ -2,5 +2,5 @@
 #define UI_H
 
 void inputPath();
-
+void inputTrack();
 #endif

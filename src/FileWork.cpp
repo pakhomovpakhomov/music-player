@@ -47,6 +47,8 @@ void SaveFiles()
 
     HANDLE const hFind = FindFirstFileW(Lpath, &wfd);
 
+    std::cout << "TRACKS:" << std::endl;
+
     if (INVALID_HANDLE_VALUE != hFind)
     {
         do

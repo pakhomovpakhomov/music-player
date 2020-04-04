@@ -13,36 +13,40 @@ std::wstring PATHMUSIC = L"";
 std::vector<std::wstring> arr;
 
 int trackNum = 0;
-//TODO: MaxTracks + functions
+int MAXTRACKS = 0;
 
 void Play()
 {
-
+    std::cout << "START PLAY()" << std::endl;
+    //Stop();
     std::wstring path = (PATHMUSIC + L"/") + arr[trackNum];
-    trackNum++;
+    std::cout << "GOVNO FINISH" << std::endl;
+    iteratorPlus();
     PlaySoundW(path.c_str(), NULL, SND_ASYNC | SND_FILENAME);
 }
 
 void Play(std::wstring name)
 {
+    Stop();
     trackNum = 0;
     std::wstring path = (PATHMUSIC + L"/") + name;
     PlaySoundW(path.c_str(), NULL, SND_ASYNC | SND_FILENAME);
 }
 
-void Pause()
+void Stop()
 {
+    iteratorMinus();
     PlaySound(NULL, NULL, SND_ASYNC | SND_FILENAME);
 }
 
 void Next()
 {
-    Pause();
     Play();
 }
 
 void setPath(std::wstring path)
 {
+    trackNum = 0;
     PATHMUSIC = path;
 }
 
@@ -53,5 +57,23 @@ std::wstring getPath()
 
 void addTrack(std::wstring file)
 {
-   arr.push_back(file);
+    MAXTRACKS++;
+    arr.push_back(file);
+}
+
+void iteratorPlus()
+{
+    if(trackNum < (MAXTRACKS - 1))
+    {
+        trackNum++;
+    } else
+        trackNum = 0;
+}
+
+void iteratorMinus()
+{
+    if(trackNum > 0)
+    {
+        trackNum--;
+    }
 }

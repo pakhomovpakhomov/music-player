@@ -2,7 +2,6 @@
 
 #include <windows.h>
 
-
 #include "Player.h"
 #include "FileWork.h"
 #include "UI.h"
@@ -12,21 +11,34 @@
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    int n;
+    int n = 4;
 
-    inputPath();
+    while (n != 182)
+    {
+        std::cout << "0 - Play" << std::endl
+            << "1 - Next" << std::endl
+            << "2 - Stop" << std::endl
+            << "3 - Play another track" << std::endl
+            << "4 - Enter Path" << std::endl
+            << "You: ";
 
-    SaveFiles();
+        std::cin >> n;
 
-    Play();
-
-    Sleep(5000);
-
-    Next();
-
-    Sleep(5000);
-
-    Play(L"atl.wav");
+        switch(n) {
+        case 0 : Play();
+                break;
+        case 1 : Next();
+                break;
+        case 2 : Stop();
+                break;
+        case 3 : inputTrack();
+                break;
+        case 4 : inputPath();
+                break;
+        case 182 : return 0;
+                break;
+        }
+    }
 
     std::cin >> n;
 
