@@ -17,11 +17,7 @@ int MAXTRACKS = 0;
 
 void Play()
 {
-    std::cout << "START PLAY()" << std::endl;
-    //Stop();
     std::wstring path = (PATHMUSIC + L"/") + arr[trackNum];
-    std::cout << "GOVNO FINISH" << std::endl;
-    iteratorPlus();
     PlaySoundW(path.c_str(), NULL, SND_ASYNC | SND_FILENAME);
 }
 
@@ -35,12 +31,12 @@ void Play(std::wstring name)
 
 void Stop()
 {
-    iteratorMinus();
     PlaySound(NULL, NULL, SND_ASYNC | SND_FILENAME);
 }
 
 void Next()
 {
+    iteratorPlus();
     Play();
 }
 
