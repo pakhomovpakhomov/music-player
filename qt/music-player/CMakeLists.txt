@@ -24,7 +24,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Multimedia REQUIRED)
 
 if(ANDROID)
   add_library(music-player SHARED
@@ -42,4 +42,4 @@ else()
   )
 endif()
 
-target_link_libraries(music-player PRIVATE Qt5::Widgets)
+target_link_libraries(music-player PRIVATE Qt5::Widgets Qt5::Multimedia)
